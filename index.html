@@ -29,6 +29,30 @@
 </table>
 
 <script src="script.js"></script>
+  <div id="searchModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+
+    <h2>Job Search</h2>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="titleTab">Job Title</button>
+      <button class="tab-btn" data-tab="codeTab">Job Code</button>
+    </div>
+
+    <div id="titleTab" class="tab-content active">
+      <input type="text" id="searchTitle" placeholder="Enter job title">
+    </div>
+
+    <div id="codeTab" class="tab-content">
+      <input type="text" id="searchCode" placeholder="Enter job code">
+    </div>
+
+    <button id="searchBtn" class="confirm-btn">Search</button>
+  </div>
+</div>
+
 </body>
 </html>
+
 
