@@ -28,3 +28,34 @@ function renderPage() {
       </tr>`;
   });
 }
+const modal = document.getElementById("searchModal");
+const openBtn = document.getElementById("openSearch");
+const closeBtn = document.querySelector(".close");
+const tabs = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+
+openBtn.onclick = () => modal.style.display = "flex";
+closeBtn.onclick = () => modal.style.display = "none";
+
+tabs.forEach(tab => {
+  tab.onclick = () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tabContents.forEach(c => c.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
+  };
+});
+
+document.getElementById("searchBtn").onclick = () => {
+  const titleVal = document.getElementById("searchTitle").value.toLowerCase();
+  const codeVal = document.getElementById("searchCode").value;
+
+  const filtered = jobsData.filter(job =>
+    job.title.toLowerCase().includes(titleVal) &&
+    job.code.includes(codeVal)
+  );
+
+  displayJobs(filtered);
+  modal.style.display = "none";
+};
+
